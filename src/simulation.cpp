@@ -55,7 +55,7 @@ bool simulation::initialize(float duration_hrs, int fleet_count, int num_charger
 }
 
 void simulation::run() {
-    // use LCM to come up with max time step
+    // Todo: use LCM to come up with optimal time step
     int time_step = 1;
     int total_steps_count = m_sim_duration / time_step;
     for(int t_step = 0; t_step < total_steps_count; t_step++) {
