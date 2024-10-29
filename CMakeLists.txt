@@ -8,12 +8,13 @@ include_directories(include src thirdparty)
 add_library(
   ${PROJECT_NAME}
   SHARED
-  include/simulator.hpp
-  include/vehicle_type.hpp
-  src/simulator.cpp
-  src/vehicle_type.cpp)
+  include/simulation.hpp
+  include/vehicle.hpp
+  src/simulation.cpp
+  src/vehicle.cpp)
 
 add_executable(${PROJECT_NAME}_exe src/main.cpp)
+target_link_libraries(${PROJECT_NAME}_exe "${PROJECT_NAME}")
 
 ## Testing ##
 if(BUILD_TESTING)
@@ -28,7 +29,10 @@ if(BUILD_TESTING)
     FetchContent_MakeAvailable(googletest)
 
     # Create the test executable
-    add_executable(${PROJECT_NAME}_tests test/test_vehicle_type.cpp)
+    add_executable(
+      ${PROJECT_NAME}_tests
+      test/test_vehicle.cpp
+      test/test_simulation.cpp)
 
     # Link GTest and the main project library (if applicable)
     target_link_libraries(${PROJECT_NAME}_tests PRIVATE gtest_main "${PROJECT_NAME}")
