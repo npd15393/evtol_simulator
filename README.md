@@ -21,13 +21,14 @@
 
 ## About
 
-Describe the purpose of the project. What problem does it solve? Provide some background and motivation here.
+eVTOL Simulator simulates a random number of each given type of vehicle and provides various statistics once the simulation is complete.
 
 ## Features
 
-- List the key features of the project.
-- Explain any unique functionality or highlight how the project stands out.
-- Bullet-point format works well here.
+- Error handling for input JSON
+- Highly modular
+- Doesn't need dependencies to be installed separately; json library is included in thirdparty folder
+- Easy to read 
 
 ## Installation
 
@@ -50,7 +51,11 @@ In a terminal, run
 ```bash
 evtol_sim_exe <PATH_TO_JSON>
 ```
-to run a simulation session for 3 hours of simulation time with 20 vehicles deployed.
+to run a simulation session for 3 hours of simulation time with 20 vehicles deployed. A json file which stores the vehicle types defined in the problem statement is provided in the `res` folder and can be used directly as follows:
+```bash
+# Assuming current directory is <project_src>/build
+./evtol_sim_exe ../res/vehicle_characteristics.json
+``` 
 
 Example Output:
 ```bash
